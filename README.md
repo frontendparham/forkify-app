@@ -40,8 +40,7 @@ Forkify application main features:
 
 Please change your IP, if you are in Iran.
 
-- Live on: [Github Pages](https://your-live-site-url.com)
-- Live on: [Netlify](https://your-live-site-url.com)
+- Live on: [Netlify](https://forkify-parham.netlify.app/)
 
 ## My process
 
