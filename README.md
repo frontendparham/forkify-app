@@ -61,9 +61,9 @@ Please change your IP, if you are in Iran.
 
 Some features and improvments that will be added to the Forkify app in the future:
 
-- Display number of pages between the pagination buttons
-- Ability to sort search results by duration or number of ingredients
-- Perform ingredient validation in view, before submitting the form
+- Display number of pages between the pagination buttons (Added)
+- Ability to sort search results by duration or number of ingredients (Added)
+- Perform ingredient validation in view, before submitting the form (Added)
 - Improve recipe ingredient input: separate in multiple fields and allow more than 6 ingredients
 - Shopping list feature: button on recipe to add ingredients to a list
 - Get nutrition data on each ingredient from spoonacularapi (https://spoonacular.com/food-api) and calculate total calories of recipe
