@@ -127,10 +127,10 @@ export const uploadRecipe = async function (newRecipe) {
       .map(ing => {
         const ingArr = ing[1].split(',').map(el => el.trim());
 
-        if (ingArr.length !== 3)
-          throw new Error(
-            'Wrong ingredient format! Please use the correct format'
-          );
+        // if (ingArr.length !== 3)
+        //   throw new Error(
+        //     'Wrong ingredient format! Please use the correct format'
+        //   );
 
         const [quantity, unit, description] = ingArr;
 
@@ -154,3 +154,8 @@ export const uploadRecipe = async function (newRecipe) {
     throw err;
   }
 };
+
+// The search results doesn't have Ingredienrs or Suration time so we should wait
+export const sortResultsByIngredients = function () {};
+
+export const sortResultsByDuration = function () {};

@@ -4,6 +4,84 @@
   flex-direction: column;
 }
 
+.sort {
+  margin-bottom: 2rem;
+  padding: 0 3.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+
+  &__btn {
+    height: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+  }
+
+  svg {
+    width: 2.4rem;
+    height: 2.4rem;
+    fill: $color-primary;
+  }
+
+  &__by {
+    padding: 1rem 0;
+    position: absolute;
+    top: 2.4rem;
+    z-index: 10;
+    min-width: 25rem;
+    background-color: #fff;
+    box-shadow: 0 0.8rem 5rem 2rem rgba($color-grey-dark-1, 0.1);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.4s 0.1s;
+
+    &:hover,
+    .sort__btn:hover + & {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    cursor: pointer;
+    padding: 0 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    transition: all 0.3s;
+    font-size: 1.3rem;
+    font-family: inherit;
+    text-transform: uppercase;
+    line-height: 3;
+    gap: 2rem;
+
+    &-active {
+      background-color: $color-grey-light-2;
+    }
+
+    svg {
+      width: 1.6rem;
+      height: 1.6rem;
+      fill: $color-primary;
+    }
+
+    &:hover {
+      background-color: $color-grey-light-2;
+    }
+  }
+}
+
 .results {
   list-style: none;
   margin-bottom: 2rem;
@@ -12,19 +90,40 @@
 .pagination {
   margin-top: auto;
   padding: 0 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  &::after {
-    content: '';
-    display: table;
-    clear: both;
+  // &::after {
+  //   content: '';
+  //   display: table;
+  //   clear: both;
+  // }
+
+  &__pages {
+    background-color: $color-primary;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    padding: 0.8rem 1.2rem;
+    border-radius: 10rem;
+    user-select: none;
+    display: flex;
+    align-items: center;
+
+    span {
+      height: 1.6rem;
+      display: flex;
+      align-items: center;
+    }
   }
 
   &__btn {
     &--prev {
-      float: left;
+      margin-right: auto;
     }
     &--next {
-      float: right;
+      margin-left: auto;
     }
   }
 }

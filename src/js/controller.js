@@ -6,6 +6,7 @@ import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
+import sortResultsView from './views/sortResultsView.js';
 import { MODAL_CLOSE_SEC } from './config.js';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
@@ -125,6 +126,12 @@ const controlAddRecipe = async function (newRecipe) {
   }
 };
 
+// The search results doesn't have Ingredienrs or Suration time so we should wait
+const controlSortResults = function (sortBy) {
+  // console.log(sortBy);
+  // console.log(model.state.search.results);
+};
+
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
@@ -133,6 +140,7 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
+  sortResultsView.addHandlerSortResults(controlSortResults);
 };
 
 init();

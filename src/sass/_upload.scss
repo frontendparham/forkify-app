@@ -3,7 +3,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100rem;
+  min-width: 100rem;
   background-color: white;
   border-radius: 9px;
 
@@ -45,13 +45,12 @@
 .upload {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem 6rem;
+  gap: 4rem 7rem;
 
   &__column {
+    gap: 2rem;
     display: grid;
-    grid-template-columns: 1fr 2.8fr;
-    align-items: center;
-    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
 
     & label {
       font-size: 1.5rem;
@@ -96,4 +95,27 @@
     grid-column: 1 / -1;
     justify-self: center;
   }
+}
+
+.form-input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.form-input-group.form-error input {
+  border-color: #fc3c3c;
+}
+
+.form-input-group.form-success input {
+  border-color: #0edd83;
+}
+
+.form-input-group .form-input-error {
+  display: block;
+  font-size: 1.2rem;
+  color: #fc3c3c;
+  height: 1.5rem;
 }

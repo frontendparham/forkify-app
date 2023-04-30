@@ -24,18 +24,25 @@ class PaginationView extends View {
 
     // Page 1, and there are other pages
     if (curPage === 1 && numPages > 1) {
-      return this._generateMarkupNextButton(curPage);
+      return (
+        this._generateMarkupCurPageOfAllPages(curPage, numPages) +
+        this._generateMarkupNextButton(curPage)
+      );
     }
 
     // Last page
     if (curPage === numPages && numPages > 1) {
-      return this._generateMarkupPrevButton(curPage);
+      return (
+        this._generateMarkupPrevButton(curPage) +
+        this._generateMarkupCurPageOfAllPages(curPage, numPages)
+      );
     }
 
     // Other page
     if (curPage < numPages) {
       return (
         this._generateMarkupPrevButton(curPage) +
+        this._generateMarkupCurPageOfAllPages(curPage, numPages) +
         this._generateMarkupNextButton(curPage)
       );
     }
@@ -67,6 +74,12 @@ class PaginationView extends View {
         </svg>
         <span>Page ${curPage - 1}</span>
       </button>
+    `;
+  }
+
+  _generateMarkupCurPageOfAllPages(curPage, numPages) {
+    return `
+      <div class="pagination__pages"><span>Page ${curPage} of ${numPages}</span></div>
     `;
   }
 }

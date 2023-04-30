@@ -85,6 +85,30 @@
       </header>
 
       <div class="search-results">
+        <div class="sort">
+          <button class="sort__btn">
+            <svg>
+              <use href="src/img/new-icons.svg#icon-sort-amount-desc"></use>
+            </svg>
+          </button>
+          <div class="sort__by">
+            <ul class="sort__list">
+              <li class="sort__item" data-sort-by="ingredients">
+                <span>Number of ingredients</span>
+                <svg>
+                  <use href="src/img/new-icons.svg#icon-list"></use>
+                </svg>
+              </li>
+              <li class="sort__item" data-sort-by="duration">
+                <span>Duration time</span>
+                <svg>
+                  <use href="src/img/new-icons.svg#icon-stopwatch"></use>
+                </svg>
+              </li>
+            </ul>
+          </div>
+        </div>
+
         <ul class="results">
           <!-- 
           <li class="preview">
@@ -261,61 +285,101 @@
       <form class="upload">
         <div class="upload__column">
           <h3 class="upload__heading">Recipe data</h3>
-          <label>Title</label>
-          <input required name="title" type="text" />
-          <label>URL</label>
-          <input required name="sourceUrl" type="text" />
-          <label>Image URL</label>
-          <input required name="image" type="text" />
-          <label>Publisher</label>
-          <input required name="publisher" type="text" />
-          <label>Prep time</label>
-          <input required name="cookingTime" type="number" />
-          <label>Servings</label>
-          <input required name="servings" type="number" />
+          <div class="form-input-group">
+            <label>Title</label>
+            <input name="title" id="title" type="text" />
+            <span class="form-input-error"></span>
+          </div>
+          <div class="form-input-group">
+            <label>URL</label>
+            <input name="sourceUrl" id="sourceUrl" type="text" />
+            <span class="form-input-error"></span>
+          </div>
+          <div class="form-input-group">
+            <label>Image URL</label>
+            <input name="image" id="image" type="text" />
+            <span class="form-input-error"></span>
+          </div>
+          <div class="form-input-group">
+            <label>Publisher</label>
+            <input name="publisher" id="publisher" type="text" />
+            <span class="form-input-error"></span>
+          </div>
+          <div class="form-input-group">
+            <label>Prep time</label>
+            <input name="cookingTime" id="cookingTime" type="number" />
+            <span class="form-input-error"></span>
+          </div>
+          <div class="form-input-group">
+            <label>Servings</label>
+            <input name="servings" id="servings" type="number" />
+            <span class="form-input-error"></span>
+          </div>
         </div>
 
         <div class="upload__column">
           <h3 class="upload__heading">Ingredients</h3>
-          <label>Ingredient 1</label>
-          <input
-            type="text"
-            required
-            name="ingredient-1"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
-          <label>Ingredient 2</label>
-          <input
-            type="text"
-            name="ingredient-2"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
-          <label>Ingredient 3</label>
-          <input
-            type="text"
-            name="ingredient-3"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
-          <label>Ingredient 4</label>
-          <input
-            type="text"
-            name="ingredient-4"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
-          <label>Ingredient 5</label>
-          <input
-            type="text"
-            name="ingredient-5"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
-          <label>Ingredient 6</label>
-          <input
-            type="text"
-            name="ingredient-6"
-            placeholder="Format: 'Quantity,Unit,Description'"
-          />
+          <div class="form-input-group">
+            <label>Ingredient 1</label>
+            <input
+              type="text"
+              name="ingredient-1"
+              id="ingredient-1"
+              placeholder="Format: 'Quantity,Unit,Description'"
+            />
+            <span class="form-input-error"></span>
+          </div>
+          <div class="form-input-group">
+            <label>Ingredient 2</label>
+            <input
+              type="text"
+              name="ingredient-2"
+              id="ingredient-2"
+              placeholder="Format: 'Quantity,Unit,Description'"
+            />
+            <span class="form-input-error"></span>
+          </div>
+          <div class="form-input-group">
+            <label>Ingredient 3</label>
+            <input
+              type="text"
+              name="ingredient-3"
+              id="ingredient-3"
+              placeholder="Format: 'Quantity,Unit,Description'"
+            />
+            <span class="form-input-error"></span>
+          </div>
+          <div class="form-input-group">
+            <label>Ingredient 4</label>
+            <input
+              type="text"
+              name="ingredient-4"
+              id="ingredient-4"
+              placeholder="Format: 'Quantity,Unit,Description'"
+            />
+            <span class="form-input-error"></span>
+          </div>
+          <div class="form-input-group">
+            <label>Ingredient 5</label>
+            <input
+              type="text"
+              name="ingredient-5"
+              id="ingredient-5"
+              placeholder="Format: 'Quantity,Unit,Description'"
+            />
+            <span class="form-input-error"></span>
+          </div>
+          <div class="form-input-group">
+            <label>Ingredient 6</label>
+            <input
+              type="text"
+              name="ingredient-6"
+              id="ingredient-6"
+              placeholder="Format: 'Quantity,Unit,Description'"
+            />
+            <span class="form-input-error"></span>
+          </div>
         </div>
-
         <button class="btn upload__btn">
           <svg>
             <use href="src/img/icons.svg#icon-upload-cloud"></use>
