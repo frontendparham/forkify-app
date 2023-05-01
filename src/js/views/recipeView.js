@@ -1,5 +1,6 @@
 import View from './View';
 import icons from 'url:../../img/icons.svg';
+import newIcons from 'url:../../img/new-icons.svg';
 import fracty from 'fracty';
 
 class RecipeView extends View {
@@ -25,6 +26,15 @@ class RecipeView extends View {
   addHandlerAddBookmark(handler) {
     this._parentEl.addEventListener('click', function (e) {
       const btn = e.target.closest('.btn--bookmark');
+      if (!btn) return;
+
+      handler();
+    });
+  }
+
+  addHandlerAddToShoppingList(handler) {
+    this._parentEl.addEventListener('click', function (e) {
+      const btn = e.target.closest('.btn--shopping');
       if (!btn) return;
 
       handler();
@@ -88,6 +98,13 @@ class RecipeView extends View {
         <svg class="">
           <use href="${icons}#icon-bookmark${
       this._data.bookmarked ? '-fill' : ''
+    }"></use>
+        </svg>
+      </button>
+      <button class="btn--round btn--shopping">
+        <svg class="">
+          <use href="${newIcons}#icon-${
+      this._data.isInShoppingList ? 'local_grocery_store' : 'add_shopping_cart'
     }"></use>
         </svg>
       </button>

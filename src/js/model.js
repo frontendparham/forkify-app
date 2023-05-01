@@ -11,6 +11,7 @@ export const state = {
     resultsPerPage: RES_PER_PAGE,
   },
   bookmarks: [],
+  shoppingList: [],
 };
 
 const createResipeObject = function (data) {
@@ -37,6 +38,10 @@ export const loadRecipe = async function (id) {
     if (state.bookmarks.some(bookmark => bookmark.id === id))
       state.recipe.bookmarked = true;
     else state.recipe.bookmarked = false;
+
+    if (state.shoppingList.some(shoppingItem => shoppingItem.id === id))
+      state.recipe.isInShoppingList = true;
+    else state.recipe.isInShoppingList = false;
   } catch (err) {
     throw err;
   }
@@ -108,10 +113,39 @@ export const deleteBookmark = function (id) {
   persistBookmarks();
 };
 
+const persistShoppingList = function () {
+  localStorage.setItem('shoppingList', JSON.stringify(state.shoppingList));
+};
+
+export const addToShoppingList = function (recipe) {
+  // Add to shopping list
+  state.shoppingList.push(recipe);
+
+  // Mark current recipe as is in hopping list
+  if (recipe.id === state.recipe.id) state.recipe.isInShoppingList = true;
+
+  persistShoppingList();
+};
+
+export const deleteFromShoppingList = function (id) {
+  // Delete from shopping list
+  const index = state.shoppingList.findIndex(el => el.id === id);
+  state.shoppingList.splice(index, 1);
+
+  // Mark current recipe as NOT in shopping list
+  if (id === state.recipe.id) state.recipe.isInShoppingList = false;
+
+  persistShoppingList();
+};
+
 const init = function () {
   // Get bookmarks back from local storage
-  const storage = localStorage.getItem('bookmarks');
-  if (storage) state.bookmarks = JSON.parse(storage);
+  const bookmarkStorage = localStorage.getItem('bookmarks');
+  if (bookmarkStorage) state.bookmarks = JSON.parse(bookmarkStorage);
+
+  // Get shopping list back from local storage
+  const shoppingListStorage = localStorage.getItem('shoppingList');
+  if (shoppingListStorage) state.shoppingList = JSON.parse(shoppingListStorage);
 };
 init();
 
@@ -150,6 +184,7 @@ export const uploadRecipe = async function (newRecipe) {
     const data = await AJAX(`${API_URL}?key=${KEY}`, recipe);
     state.recipe = createResipeObject(data);
     addBookmark(state.recipe);
+    addToShoppingList(state.recipe);
   } catch (err) {
     throw err;
   }

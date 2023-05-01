@@ -7,6 +7,7 @@ import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
 import sortResultsView from './views/sortResultsView.js';
+import shoppingListView from './views/shoppingListView.js';
 import { MODAL_CLOSE_SEC } from './config.js';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
@@ -29,6 +30,9 @@ const controlRecipes = async function () {
 
     // Updating bookmarks view
     bookmarksView.update(model.state.bookmarks);
+
+    // Updating shoppingList view
+    shoppingListView.update(model.state.shoppingList);
 
     // Loading recipe
     await model.loadRecipe(id);
@@ -97,6 +101,23 @@ const controlBookmarks = function () {
   bookmarksView.render(model.state.bookmarks);
 };
 
+const controlAddToShoppingList = function () {
+  // 1) Add/Remove item to/from shopping list
+  if (!model.state.recipe.isInShoppingList)
+    model.addToShoppingList(model.state.recipe);
+  else model.deleteFromShoppingList(model.state.recipe.id);
+
+  // 2) Update recipe view
+  recipeView.update(model.state.recipe);
+
+  // 3) Render shopping list
+  shoppingListView.render(model.state.shoppingList);
+};
+
+const controlShoppingList = function () {
+  shoppingListView.render(model.state.shoppingList);
+};
+
 const controlAddRecipe = async function (newRecipe) {
   try {
     // Show loading spinner
@@ -113,6 +134,9 @@ const controlAddRecipe = async function (newRecipe) {
 
     // Render bookmarks view
     bookmarksView.render(model.state.bookmarks);
+
+    // Render shopping list view
+    shoppingListView.render(model.state.shoppingList);
 
     // Change ID in URL
     window.history.pushState(null, '', `#${model.state.recipe.id}`);
@@ -134,9 +158,11 @@ const controlSortResults = function (sortBy) {
 
 const init = function () {
   bookmarksView.addHandlerRender(controlBookmarks);
+  shoppingListView.addHandlerRender(controlShoppingList);
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
+  recipeView.addHandlerAddToShoppingList(controlAddToShoppingList);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);

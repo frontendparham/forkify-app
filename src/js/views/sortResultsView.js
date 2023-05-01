@@ -1,5 +1,5 @@
 import View from './View';
-import icons from 'url:../../img/new-icons.svg';
+import newIcons from 'url:../../img/new-icons.svg';
 
 class SortResultsView extends View {
   _parentEl = document.querySelector('.sort');

@@ -31,6 +31,9 @@ Forkify application main features:
 - Own recipe upload
 - Own recipes automatically bookmarked
 - User can only see own recipes, not from others
+- User can see number of pages between the pagination buttons
+- Add recipe form validation before submitting
+- Shopping list feature: button on recipe to add ingredients to a list
 
 ### Screenshot
 
@@ -64,9 +67,8 @@ Some features and improvments that will be added to the Forkify app in the futur
 - Display number of pages between the pagination buttons (Added)
 - Ability to sort search results by duration or number of ingredients (Added)
 - Perform ingredient validation in view, before submitting the form (Added)
-- Improve recipe ingredient input: separate in multiple fields and allow more than 6 ingredients
-- Shopping list feature: button on recipe to add ingredients to a list
-- Get nutrition data on each ingredient from spoonacularapi (https://spoonacular.com/food-api) and calculate total calories of recipe
+- Shopping list feature: button on recipe to add ingredients to a list (Added)
+- Get nutrition data on each ingredient from spoonacularapi (https://spoonacular.com/food-api) and calculate total calories of recipe (Developing)
 
 ### What I learned
 
