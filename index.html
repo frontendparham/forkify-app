@@ -80,6 +80,45 @@
                 </ul>
               </div>
             </li>
+            <li class="nav__item">
+              <button class="nav__btn nav__btn--shopping">
+                <svg class="nav__icon">
+                  <use
+                    href="src/img/new-icons.svg#icon-add_shopping_cart"
+                  ></use>
+                </svg>
+                <span>Shopping list</span>
+              </button>
+              <div class="shopping">
+                <ul class="shopping__list">
+                  <div class="message">
+                    <div>
+                      <svg>
+                        <use href="src/img/icons.svg#icon-smile"></use>
+                      </svg>
+                    </div>
+                    <p>
+                      Your list is empty. Find a nice recipe and add it to your
+                      shopping list :)
+                    </p>
+                  </div>
+
+                  <!-- <li class="preview">
+                    <a class="preview__link" href="#23456">
+                      <figure class="preview__fig">
+                        <img src="src/img/test-1.jpg" alt="Test" />
+                      </figure>
+                      <div class="preview__data">
+                        <h4 class="preview__name">
+                          Pasta with Tomato Cream ...
+                        </h4>
+                        <p class="preview__publisher">The Pioneer Woman</p>
+                      </div>
+                    </a>
+                  </li> -->
+                </ul>
+              </div>
+            </li>
           </ul>
         </nav>
       </header>
@@ -88,7 +127,7 @@
         <div class="sort">
           <button class="sort__btn">
             <svg>
-              <use href="src/img/new-icons.svg#icon-sort-amount-desc"></use>
+              <use href="src/img/new-icons.svg#icon-sort"></use>
             </svg>
           </button>
           <div class="sort__by">
@@ -96,13 +135,15 @@
               <li class="sort__item" data-sort-by="ingredients">
                 <span>Number of ingredients</span>
                 <svg>
-                  <use href="src/img/new-icons.svg#icon-list"></use>
+                  <use
+                    href="src/img/new-icons.svg#icon-format_list_numbered"
+                  ></use>
                 </svg>
               </li>
               <li class="sort__item" data-sort-by="duration">
                 <span>Duration time</span>
                 <svg>
-                  <use href="src/img/new-icons.svg#icon-stopwatch"></use>
+                  <use href="src/img/new-icons.svg#icon-timer"></use>
                 </svg>
               </li>
             </ul>
